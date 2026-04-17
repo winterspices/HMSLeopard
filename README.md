@@ -4,6 +4,8 @@ HMS Leopard was a 50-gun Portland class fourth rate of the Royal Navy. She serve
 
 This project took me a little over two months from start to first release. There will hopefully be many more updates, as there are a lot of features I want to introduce, as well as increase level of detail in some areas. If you have any suggestions, or bug reports, do feel free to ping me on discord or create a bug report [here](https://github.com/winterspices/HMSLeopard/issues).
 
+The ship spawns just outside the dock at Gold Rock City and costs 800 gold. This is subject to change.
+
 ## Features
 
 - Detailed, hand-made models
