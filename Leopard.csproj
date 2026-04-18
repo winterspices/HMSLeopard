@@ -103,6 +103,7 @@
     <Compile Include="LeopardPatcher.cs" />
     <Compile Include="MatLib.cs" />
     <Compile Include="Patches.cs" />
+    <Compile Include="Patch_OnCollisionEnter.cs" />
     <Compile Include="Patch_UpdateRope.cs" />
     <Compile Include="Patch_UpdateZoom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

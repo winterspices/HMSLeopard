@@ -13,7 +13,7 @@ namespace Leopard
     public class Patch_AttachToController
     {
         // custom logic for moving the attachment point for angle winches
-        public static bool Prefix(GPButtonRopeWinch __instance, RopeController controller, LineRenderer ___ropeEffect)
+        public static bool Prefix(GPButtonRopeWinch __instance, RopeController controller, ref LineRenderer ___ropeEffect)
         {
             if (__instance.description.Contains("custom"))
             {

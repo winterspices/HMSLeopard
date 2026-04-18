@@ -70,6 +70,7 @@ namespace Leopard
                             }
 
                             Gunports.Setup();
+                            SetupSeafloor();
 
                             //foreach (GameObject overflow in Gunports.overflows)
                             //{
@@ -116,6 +117,13 @@ namespace Leopard
                 leopard = (bundle.LoadAsset(prefab) as GameObject);
                 leopardInstalled = true;
             }
+        }
+
+        // re-tag some objects to ensure that anchors work properly
+        private static void SetupSeafloor()
+        {
+            //GameObject.Find("island 26 lagoon parent terrain (-1)/Plane").name = "Terrain";
+            GameObject.Find("island 1 A (gold rock)/terrain_fix").tag = "Terrain";
         }
     }
 }

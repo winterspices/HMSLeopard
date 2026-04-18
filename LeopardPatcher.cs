@@ -8,14 +8,14 @@ using UnityEngine;
 
 namespace Leopard
 {
-    [BepInPlugin("com.winter.leopard","HMS Leopard", "1.0.0")]
+    [BepInPlugin("com.winter.leopard","HMS Leopard", "1.0.2")]
     [BepInDependency("com.nandbrew.shipyardexpansion")]
     [BepInDependency("com.nandbrew.sailcollisionfix")]
     public class LeopardPatcher : BaseUnityPlugin
     {
         public const string pluginGuid = "com.winter.leopard";
         public const string pluginName = "HMS Leopard";
-        public const string pluginVersion = "1.0.0";
+        public const string pluginVersion = "1.0.2";
 
         private void Awake()
         {
