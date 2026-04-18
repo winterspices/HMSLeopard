@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="LeopardBellInteract.cs" />
     <Compile Include="Patch_AttachToController.cs" />
+    <Compile Include="Patch_DischargeShip.cs" />
     <Compile Include="Patch_OnActivate.cs" />
     <Compile Include="Gunports.cs" />
     <Compile Include="LeopardPatcher.cs" />
