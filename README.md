@@ -18,7 +18,7 @@ The ship spawns just outside the dock at Gold Rock City and costs 800 gold. This
 - Custom flooding code, depending on how many gunports are left open
 
 ## Installation
-It's as easy as [downloading](https://github.com/winterspices/HMSLeopard/releases) the .zip file and extracting the folder inside to your plugins folder inside BepInEx. The folder structure should look like:
+It's as easy as [downloading](https://github.com/winterspices/HMSLeopard/releases) the .zip file and extracting to your plugins folder inside BepInEx. The folder structure should look like:
 ```
 plugins\
   Leopard\
