@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using HarmonyLib;
+using System.Reflection;
+using UnityEngine;
 
 namespace Leopard
 {
@@ -37,17 +39,15 @@ namespace Leopard
             float x = Mathf.Cos(azimuth * Mathf.Deg2Rad) * radius;
             float z = Mathf.Sin((azimuth - 180f) * Mathf.Deg2Rad) * radius;
 
-
             cutter.transform.SetPositionAndRotation(new Vector3(pos.x + x, pos.y, pos.z + z), rotation);
+
+            BoatHorizon instance = cutter.transform.Find("boat cutter").GetComponent<BoatHorizon>();
+            FieldInfo field = AccessTools.Field(typeof(BoatHorizon), "updateCooldown");
+            field.SetValue(instance, 0f);
 
             // hide the cutter on the decks
             ship.Find("boat leopard/structure_container/Wooden Rowboat").gameObject.SetActive(false);
             ship.Find("boat leopard/structure_container/rowboat rope").gameObject.SetActive(true);
-        }
-
-        public void EnableCutter()
-        {
-
         }
     }
 }
