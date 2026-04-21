@@ -95,9 +95,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CutterController.cs" />
+    <Compile Include="CutterRopeController.cs" />
     <Compile Include="LeopardBellInteract.cs" />
+    <Compile Include="OarController.cs" />
     <Compile Include="Patch_AttachToController.cs" />
     <Compile Include="Patch_DischargeShip.cs" />
+    <Compile Include="Patch_LoadGame.cs" />
     <Compile Include="Patch_OnActivate.cs" />
     <Compile Include="Gunports.cs" />
     <Compile Include="LeopardPatcher.cs" />

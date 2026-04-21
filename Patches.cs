@@ -12,8 +12,12 @@ namespace Leopard
         public static GameObject ship;
         public static GameObject leopard;
         public static GameObject embarkLeopard;
+        public static GameObject boat;
+        public static GameObject cutter;
+        public static GameObject embarkCutter;
 
         public static bool leopardInstalled;
+        public static bool cutterInstalled;
 
         [HarmonyPatch(typeof(FloatingOriginManager))]
         public static class FloatingOriginManagerPatches
@@ -69,8 +73,11 @@ namespace Leopard
                                 Debug.LogWarning("not bell");
                             }
 
+                            ship.transform.Find("boat leopard/structure_container/Wooden Rowboat").gameObject.AddComponent<CutterController>();
+                            ship.transform.Find("boat leopard/structure_container/rowboat rope").gameObject.AddComponent<CutterRopeController>();
+
                             Gunports.Setup();
-                            SetupSeafloor();
+                            
 
                             //foreach (GameObject overflow in Gunports.overflows)
                             //{
@@ -86,6 +93,42 @@ namespace Leopard
                     {
                         Debug.LogError("Could not load Leopard due to prefab not loading correctly. Did you assign the leopard prefab to an asset bundle in Unity?");
                     }
+
+                    if (cutter)
+                    {
+                        try
+                        {
+                            
+                            boat = UnityEngine.Object.Instantiate<GameObject>(cutter, __instance.transform);
+                            embarkCutter = GameObject.Find("WALK boat cutter");
+
+                            Transform transform = GameObject.Find("walk cols").transform;
+
+                            embarkCutter.transform.SetParent(transform);
+                            embarkCutter.transform.localPosition = new Vector3(-400f, 0f, 100f);
+
+                            boat.transform.Find("boat cutter/mask").GetComponent<MeshRenderer>().material = MatLib.convexHull;
+                            boat.transform.Find("WaterObjectInteractionSphereBack").GetComponent<MeshRenderer>().material = MatLib.objectInteraction;
+                            boat.transform.Find("WaterObjectInteractionSphereFront").GetComponent<MeshRenderer>().material = MatLib.objectInteraction;
+                            boat.transform.Find("water foam").GetComponent<MeshRenderer>().material = MatLib.foam;
+                            //ship.transform.Find("boat leopard").transform.Find("damage_water").GetComponent<MeshRenderer>().material = MatLib.water4;
+                            //ship.transform.Find("boat leopard/mask splash").GetComponent<MeshRenderer>().material = MatLib.splash;
+
+                            boat.transform.Find("boat cutter/structure_container/hull/paddles").gameObject.AddComponent<OarController>();
+
+                            cutter.transform.SetPositionAndRotation(new Vector3(-500000f, 0f, -500000f), new Quaternion());
+
+                            Debug.LogWarning("Cutter loaded");
+                        } catch (Exception e)
+                        {
+                            Debug.LogError($"Could not load cutter due to exception:\n{e}");
+                        }
+                    } else
+                    {
+                        Debug.LogError("Could not load cutter due to prefab not loading correctly. Did you assign the cutter prefab to an asset bundle in Unity?");
+                    }
+
+                    SetupSeafloor();
                 } 
                 else
                 {
@@ -113,9 +156,13 @@ namespace Leopard
             } else
             {
                 AssetBundle bundle = AssetBundle.LoadFromFile(path + "\\leopard");
-                string prefab = "Assets/Leopard/BOAT LEOPARD (207).prefab";
-                leopard = (bundle.LoadAsset(prefab) as GameObject);
+                string prefab1 = "Assets/Leopard/BOAT LEOPARD (207).prefab";
+                leopard = (bundle.LoadAsset(prefab1) as GameObject);
                 leopardInstalled = true;
+
+                string prefab2 = "Assets/Leopard/BOAT CUTTER (212).prefab";
+                cutter = (bundle.LoadAsset(prefab2) as GameObject);
+                cutterInstalled = true;
             }
         }
 

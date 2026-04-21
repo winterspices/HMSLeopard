@@ -14,15 +14,28 @@ namespace Leopard
     {
         public static void Prefix(Shipyard __instance, GameObject ___currentShip)
         {
-            GameObject obj = GameObject.Find("shipyard Al'Ankh/ship release pos");
+            try
+            {
+                GameObject obj = GameObject.Find("shipyard Al'Ankh/ship release pos");
+                Shipyard shipyard = GameState.currentShipyard;
 
-            if (___currentShip.name == "BOAT LEOPARD (207)(Clone)")
+                if (shipyard.transform.name == "shipyard Al'Ankh")
+                {
+                    if (___currentShip.name == "BOAT LEOPARD (207)(Clone)")
+                    {
+                        obj.transform.localPosition = new Vector3(-46.8f, -9.85f, -1.1f);
+                    }
+                    else
+                    {
+                        obj.transform.localPosition = new Vector3(13.9f, -9.85f, -0.8f);
+                    }
+                }
+            } catch (Exception e)
             {
-                obj.transform.localPosition = new Vector3(-46.8f, -9.85f, -1.1f);
-            } else
-            {
-                obj.transform.localPosition = new Vector3(13.9f, -9.85f, -0.8f);
+                // probably not al ankh
+                return;
             }
+            
         }
     }
 }
