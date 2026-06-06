@@ -101,16 +101,17 @@
     <Compile Include="OarController.cs" />
     <Compile Include="Patch_AttachToController.cs" />
     <Compile Include="Patch_DischargeShip.cs" />
-    <Compile Include="Patch_LoadGame.cs" />
     <Compile Include="Patch_OnActivate.cs" />
     <Compile Include="Gunports.cs" />
     <Compile Include="LeopardPatcher.cs" />
     <Compile Include="MatLib.cs" />
     <Compile Include="Patches.cs" />
     <Compile Include="Patch_OnCollisionEnter.cs" />
+    <Compile Include="Patch_SetAnchor.cs" />
     <Compile Include="Patch_UpdateRope.cs" />
     <Compile Include="Patch_UpdateZoom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveLoadPatches.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

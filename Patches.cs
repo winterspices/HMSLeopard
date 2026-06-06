@@ -18,6 +18,7 @@ namespace Leopard
 
         public static bool leopardInstalled;
         public static bool cutterInstalled;
+        public static bool cutterActive = false;
 
         [HarmonyPatch(typeof(FloatingOriginManager))]
         public static class FloatingOriginManagerPatches

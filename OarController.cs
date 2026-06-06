@@ -80,6 +80,7 @@ namespace Leopard
                     rightOar.transform.localRotation = Quaternion.Euler(-xAngle, 0f, -zAngle);
                 }
                 
+                // add code for dealing with left/right and backwards
                 if (GameInput.GetKey(InputName.MoveLeft))
                 {
                     rigidbody.AddTorque(Vector3.up * -forceAmount * turnForce, ForceMode.Force);

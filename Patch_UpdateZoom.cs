@@ -5,9 +5,9 @@ using UnityEngine;
 namespace Leopard
 {
     [HarmonyPatch(typeof(BoatCamera), "UpdateZoom")]
-    class Patch_UpdateZoom
+    public class Patch_UpdateZoom
     {
-        static bool Prefix(BoatCamera __instance)
+        public static bool Prefix(BoatCamera __instance)
         {
             FieldInfo zoomField = AccessTools.Field(__instance.GetType(), "zoomLevel");
             FieldInfo speedField = AccessTools.Field(__instance.GetType(), "zoomSpeed");

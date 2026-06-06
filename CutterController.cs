@@ -30,6 +30,8 @@ namespace Leopard
             Debug.Log("Setting cutter");
 
             cutter = Patches.boat;
+            cutter.SetActive(true);
+            Patches.cutterActive = true;
 
             // set the cutters position
             pos = ship.position;
@@ -41,6 +43,7 @@ namespace Leopard
 
             cutter.transform.SetPositionAndRotation(new Vector3(pos.x + x, pos.y, pos.z + z), rotation);
 
+            // refresh the boat instantly
             BoatHorizon instance = cutter.transform.Find("boat cutter").GetComponent<BoatHorizon>();
             FieldInfo field = AccessTools.Field(typeof(BoatHorizon), "updateCooldown");
             field.SetValue(instance, 0f);

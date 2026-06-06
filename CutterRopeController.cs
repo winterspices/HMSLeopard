@@ -27,11 +27,11 @@ namespace Leopard
                 return;
             }
 
-            if (Vector3.Distance(cutter.transform.localPosition, ship.localPosition) > 15)
-            {
-                Debug.Log("Rowboat too far away!");
-                return;
-            }
+            //if (Vector3.Distance(cutter.transform.localPosition, ship.localPosition) > 15)
+            //{
+            //    Debug.Log("Rowboat too far away!");
+            //    return;
+            //}
 
             if (ship.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 1.5f)
             {
@@ -51,7 +51,8 @@ namespace Leopard
 
         public void DisableCutter()
         {
-            cutter.transform.SetPositionAndRotation(new Vector3(-500000f, 0f, -500000f), new Quaternion());
+            cutter.SetActive(false);
+            Patches.cutterActive = false;
         }
     }
 }

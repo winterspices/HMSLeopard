@@ -30,7 +30,7 @@ namespace Leopard
                         obj.transform.localPosition = new Vector3(13.9f, -9.85f, -0.8f);
                     }
                 }
-            } catch (Exception e)
+            } catch (Exception)
             {
                 // probably not al ankh
                 return;
