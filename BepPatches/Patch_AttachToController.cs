@@ -1,13 +1,8 @@
 ﻿using HarmonyLib;
 using LeopardBridge;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.BepPatches
 {
     [HarmonyPatch(typeof(GPButtonRopeWinch), "AttachToController")]
     public class Patch_AttachToController

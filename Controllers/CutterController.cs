@@ -2,7 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.Controllers
 {
     public class CutterController : GoPointerButton
     {

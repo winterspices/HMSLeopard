@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.Controllers
 {
     public static class Gunports
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Leopard
+namespace Leopard.Controllers
 {
     public class LeopardBellInteract : GoPointerButton
     {

@@ -1,7 +1,7 @@
 ﻿using cakeslice;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.Controllers
 {
     public class OarController : GoPointerButton
     {

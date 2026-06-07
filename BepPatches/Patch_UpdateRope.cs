@@ -1,12 +1,7 @@
 ﻿using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.BepPatches
 {
     [HarmonyPatch(typeof(ClothRope), "UpdateRope")]
     public class Patch_UpdateRope

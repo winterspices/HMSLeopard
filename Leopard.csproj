@@ -95,23 +95,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CutterController.cs" />
-    <Compile Include="CutterRopeController.cs" />
-    <Compile Include="LeopardBellInteract.cs" />
-    <Compile Include="OarController.cs" />
-    <Compile Include="Patch_AttachToController.cs" />
-    <Compile Include="Patch_DischargeShip.cs" />
-    <Compile Include="Patch_OnActivate.cs" />
-    <Compile Include="Gunports.cs" />
+    <Compile Include="Controllers\CutterController.cs" />
+    <Compile Include="Controllers\CutterRopeController.cs" />
+    <Compile Include="Controllers\LeopardBellInteract.cs" />
+    <Compile Include="Controllers\OarController.cs" />
+    <Compile Include="BepPatches\Patch_AttachToController.cs" />
+    <Compile Include="BepPatches\Patch_DischargeShip.cs" />
+    <Compile Include="BepPatches\Patch_OnActivate.cs" />
+    <Compile Include="Controllers\Gunports.cs" />
     <Compile Include="LeopardPatcher.cs" />
     <Compile Include="MatLib.cs" />
     <Compile Include="Patches.cs" />
-    <Compile Include="Patch_OnCollisionEnter.cs" />
-    <Compile Include="Patch_SetAnchor.cs" />
-    <Compile Include="Patch_UpdateRope.cs" />
-    <Compile Include="Patch_UpdateZoom.cs" />
+    <Compile Include="BepPatches\Patch_OnCollisionEnter.cs" />
+    <Compile Include="BepPatches\Patch_SetAnchor.cs" />
+    <Compile Include="BepPatches\Patch_UpdateRope.cs" />
+    <Compile Include="BepPatches\Patch_UpdateZoom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveLoadPatches.cs" />
+    <Compile Include="BepPatches\Patch_SaveLoad.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

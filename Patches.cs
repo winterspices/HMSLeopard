@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using HarmonyLib;
+using Leopard.Controllers;
 using System;
 using System.IO;
 using System.Reflection;
@@ -27,10 +28,10 @@ namespace Leopard
             [HarmonyPatch("Start")]
             public static void StartPatch(FloatingOriginManager __instance)
             {
-                if(__instance.name == "_shifting world")
+                if (__instance.name == "_shifting world")
                 {
                     LoadAssets();
-                    
+
                     if (leopard)
                     {
                         try
@@ -65,11 +66,13 @@ namespace Leopard
                                 {
                                     bell.gameObject.AddComponent<LeopardBellInteract>();
                                     Debug.LogWarning("Bell script added");
-                                } else
+                                }
+                                else
                                 {
                                     Debug.LogWarning("Not col and bell");
                                 }
-                            } else
+                            }
+                            else
                             {
                                 Debug.LogWarning("not bell");
                             }
@@ -78,7 +81,7 @@ namespace Leopard
                             ship.transform.Find("boat leopard/structure_container/rowboat rope").gameObject.AddComponent<CutterRopeController>();
 
                             Gunports.Setup();
-                            
+
 
                             //foreach (GameObject overflow in Gunports.overflows)
                             //{
@@ -86,11 +89,13 @@ namespace Leopard
                             //}
 
                             Debug.LogWarning("Leopard loaded");
-                        } catch (Exception e)
+                        }
+                        catch (Exception e)
                         {
                             Debug.LogError($"Could not load Leopard due to exception:\n{e}");
                         }
-                    } else
+                    }
+                    else
                     {
                         Debug.LogError("Could not load Leopard due to prefab not loading correctly. Did you assign the leopard prefab to an asset bundle in Unity?");
                     }
@@ -99,7 +104,7 @@ namespace Leopard
                     {
                         try
                         {
-                            
+
                             boat = UnityEngine.Object.Instantiate<GameObject>(cutter, __instance.transform);
                             embarkCutter = GameObject.Find("WALK boat cutter");
 
@@ -120,17 +125,19 @@ namespace Leopard
                             cutter.transform.SetPositionAndRotation(new Vector3(-500000f, 0f, -500000f), new Quaternion());
 
                             Debug.LogWarning("Cutter loaded");
-                        } catch (Exception e)
+                        }
+                        catch (Exception e)
                         {
                             Debug.LogError($"Could not load cutter due to exception:\n{e}");
                         }
-                    } else
+                    }
+                    else
                     {
                         Debug.LogError("Could not load cutter due to prefab not loading correctly. Did you assign the cutter prefab to an asset bundle in Unity?");
                     }
 
                     SetupSeafloor();
-                } 
+                }
                 else
                 {
                     GameState.currentBoat = null;
@@ -154,7 +161,8 @@ namespace Leopard
             {
                 Debug.LogError("Leopard not installed correctly");
                 leopardInstalled = false;
-            } else
+            }
+            else
             {
                 AssetBundle bundle = AssetBundle.LoadFromFile(path + "\\leopard");
                 string prefab1 = "Assets/Leopard/BOAT LEOPARD (207).prefab";

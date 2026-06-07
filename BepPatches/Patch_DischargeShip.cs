@@ -1,13 +1,8 @@
 ﻿using HarmonyLib;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.BepPatches
 {
     [HarmonyPatch(typeof(Shipyard), "DischargeShip")]
     public class Patch_DischargeShip

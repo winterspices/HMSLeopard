@@ -2,7 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.BepPatches
 {
     [HarmonyPatch(typeof(BoatCamera), "UpdateZoom")]
     public class Patch_UpdateZoom

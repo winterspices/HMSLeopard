@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.BepPatches
 {
     [HarmonyPatch(typeof(SaveLoadManager))]
-    public class SaveLoadPatches
+    public class Patch_SaveLoad
     {
         [HarmonyPatch("SaveModData")]
         [HarmonyPostfix]

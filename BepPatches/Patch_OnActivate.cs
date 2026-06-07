@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
-using System.Collections.Generic;
+using Leopard.Controllers;
 using UnityEngine;
 
-namespace Leopard
+namespace Leopard.BepPatches
 {
     [HarmonyPatch(typeof(GPButtonTrapdoor), "OnActivate")]
     public class Patch_OnActivate
