@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Leopard.Controllers;
 using LeopardBridge;
 using UnityEngine;
 
@@ -20,6 +21,11 @@ namespace Leopard.BepPatches
                 controller.transform.parent = __instance.transform.parent;
                 ___ropeEffect = __instance.rope.GetComponent<LineRenderer>();
                 controller.UpdateSailAttachment();
+
+                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_port").GetComponent<BowspritRopes>().PlaceholderName();
+                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_starboard").GetComponent<BowspritRopes>().PlaceholderName();
+
+                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/starboard pulley").GetComponent<PulleyController>().Setup();
 
                 return false;
             }

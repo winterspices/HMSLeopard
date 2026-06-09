@@ -80,6 +80,11 @@ namespace Leopard
                             ship.transform.Find("boat leopard/structure_container/Wooden Rowboat").gameObject.AddComponent<CutterController>();
                             ship.transform.Find("boat leopard/structure_container/rowboat rope").gameObject.AddComponent<CutterRopeController>();
 
+                            ship.transform.Find("boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_port").gameObject.AddComponent<BowspritRopes>();
+                            ship.transform.Find("boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_starboard").gameObject.AddComponent<BowspritRopes>();
+
+                            ship.transform.Find("boat leopard/structure_container/MAINMAST/starboard pulley").gameObject.AddComponent<PulleyController>();
+
                             Gunports.Setup();
 
 

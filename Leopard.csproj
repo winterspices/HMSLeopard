@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BowspritRopes.cs" />
     <Compile Include="Controllers\CutterController.cs" />
     <Compile Include="Controllers\CutterRopeController.cs" />
     <Compile Include="Controllers\LeopardBellInteract.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="BepPatches\Patch_DischargeShip.cs" />
     <Compile Include="BepPatches\Patch_OnActivate.cs" />
     <Compile Include="Controllers\Gunports.cs" />
+    <Compile Include="Controllers\PulleyController.cs" />
     <Compile Include="LeopardPatcher.cs" />
     <Compile Include="MatLib.cs" />
     <Compile Include="Patches.cs" />
