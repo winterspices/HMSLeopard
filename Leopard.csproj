@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BepPatches\Patch_Anchor.cs" />
     <Compile Include="Controllers\BowspritRopes.cs" />
     <Compile Include="Controllers\CutterController.cs" />
     <Compile Include="Controllers\CutterRopeController.cs" />
@@ -108,8 +109,6 @@
     <Compile Include="LeopardPatcher.cs" />
     <Compile Include="MatLib.cs" />
     <Compile Include="Patches.cs" />
-    <Compile Include="BepPatches\Patch_OnCollisionEnter.cs" />
-    <Compile Include="BepPatches\Patch_SetAnchor.cs" />
     <Compile Include="BepPatches\Patch_UpdateRope.cs" />
     <Compile Include="BepPatches\Patch_UpdateZoom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
