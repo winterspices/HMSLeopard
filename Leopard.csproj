@@ -99,6 +99,7 @@
     <Compile Include="Controllers\BowspritRopes.cs" />
     <Compile Include="Controllers\CutterController.cs" />
     <Compile Include="Controllers\CutterRopeController.cs" />
+    <Compile Include="Controllers\FoamController.cs" />
     <Compile Include="Controllers\LeopardBellInteract.cs" />
     <Compile Include="Controllers\OarController.cs" />
     <Compile Include="BepPatches\Patch_AttachToController.cs" />

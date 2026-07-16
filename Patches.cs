@@ -53,6 +53,7 @@ namespace Leopard
                             ship.transform.Find("water foam").GetComponent<MeshRenderer>().material = MatLib.foam;
                             ship.transform.Find("boat leopard").transform.Find("damage_water").GetComponent<MeshRenderer>().material = MatLib.water4;
                             ship.transform.Find("boat leopard/mask splash").GetComponent<MeshRenderer>().material = MatLib.splash;
+                            ship.transform.Find("boat leopard/mask splash rear").GetComponent<MeshRenderer>().material = MatLib.splash;
 
                             // add bell script
                             Transform bell = ship.transform.Find("boat leopard/structure_container/bell");
