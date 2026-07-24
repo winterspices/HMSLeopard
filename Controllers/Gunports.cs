@@ -39,7 +39,8 @@ namespace Leopard.Controllers
         {
             foreach (GameObject overflow in overflows)
             {
-                overflow.SetActive(!overflow.activeSelf);
+                bool open = Gunports.lowerGunports[0].GetComponent<GPButtonTrapdoor>().IsOpen();
+                overflow.SetActive(open);
             }
         }
 

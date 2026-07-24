@@ -19,7 +19,7 @@ namespace Leopard
 
         public static bool leopardInstalled;
         public static bool cutterInstalled;
-        public static bool cutterActive = false;
+        public static bool cutterActive;
 
         [HarmonyPatch(typeof(FloatingOriginManager))]
         public static class FloatingOriginManagerPatches
@@ -66,17 +66,31 @@ namespace Leopard
                                 if (audio && col)
                                 {
                                     bell.gameObject.AddComponent<LeopardBellInteract>();
-                                    Debug.LogWarning("Bell script added");
+                                    Debug.LogWarning("[Leopard] Bell script added");
                                 }
                                 else
                                 {
-                                    Debug.LogWarning("Not col and bell");
+                                    Debug.LogWarning("[Leopard] Could not find audio and/or collider for bell!");
                                 }
                             }
                             else
                             {
-                                Debug.LogWarning("not bell");
+                                Debug.LogWarning("[Leopard] Bell object does not exist!");
                             }
+
+                            // add cannon + carriage scripts
+                            Transform decks = ship.transform.Find("boat leopard/structure_container/CANNONS");
+
+                            foreach (Transform deck in decks)
+                            {
+                                foreach (Transform cannon in deck)
+                                {
+                                    cannon.Find("cannon").gameObject.AddComponent<CannonController>();
+                                    cannon.Find("cannon/carriage").gameObject.AddComponent<CarriageController>();
+                                }
+                            }
+
+
 
                             ship.transform.Find("boat leopard/structure_container/Wooden Rowboat").gameObject.AddComponent<CutterController>();
                             ship.transform.Find("boat leopard/structure_container/rowboat rope").gameObject.AddComponent<CutterRopeController>();
@@ -94,16 +108,26 @@ namespace Leopard
                             //    overflow.GetComponent<MeshRenderer>().material = MatLib.particleSplash;
                             //}
 
-                            Debug.LogWarning("Leopard loaded");
+                            // fix small issue with leopard anchor
+                            Transform anchor = GameObject.Find("_shifting world/leopard anchor").transform;
+                            Anchor anch = anchor.GetComponent<Anchor>();
+                            anchor.GetComponent<SaveableObject>().anchor = anch;
+
+                            // add foam controller scripts
+                            ship.transform.Find("hull splash set 8/hull_splash (front left)").gameObject.AddComponent<FoamController>();
+                            ship.transform.Find("hull splash set 8/hull_splash (front right)").gameObject.AddComponent<FoamController>();
+
+
+                            Debug.LogWarning("[Leopard] Finished loading");
                         }
                         catch (Exception e)
                         {
-                            Debug.LogError($"Could not load Leopard due to exception:\n{e}");
+                            Debug.LogError($"[Leopard] Could not load Leopard due to exception:\n{e}");
                         }
                     }
                     else
                     {
-                        Debug.LogError("Could not load Leopard due to prefab not loading correctly. Did you assign the leopard prefab to an asset bundle in Unity?");
+                        Debug.LogError("[Leopard] Could not load Leopard due to prefab not loading correctly. Did you assign the leopard prefab to an asset bundle in Unity?");
                     }
 
                     if (cutter)
@@ -130,16 +154,16 @@ namespace Leopard
 
                             cutter.transform.SetPositionAndRotation(new Vector3(-500000f, 0f, -500000f), new Quaternion());
 
-                            Debug.LogWarning("Cutter loaded");
+                            Debug.LogWarning("[Leopard] Cutter loaded");
                         }
                         catch (Exception e)
                         {
-                            Debug.LogError($"Could not load cutter due to exception:\n{e}");
+                            Debug.LogError($"[Leopard] Could not load cutter due to exception:\n{e}");
                         }
                     }
                     else
                     {
-                        Debug.LogError("Could not load cutter due to prefab not loading correctly. Did you assign the cutter prefab to an asset bundle in Unity?");
+                        Debug.LogError("[Leopard] Could not load cutter due to prefab not loading correctly. Did you assign the cutter prefab to an asset bundle in Unity?");
                     }
 
                     SetupSeafloor();

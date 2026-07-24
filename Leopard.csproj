@@ -95,8 +95,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BepPatches\Patch_Anchor.cs" />
+    <Compile Include="BepPatches\Patch_ApplyForce.cs" />
+    <Compile Include="BepPatches\Patch_InteriorEffectsTrigger.cs" />
     <Compile Include="Controllers\BowspritRopes.cs" />
+    <Compile Include="Controllers\CannonController.cs" />
+    <Compile Include="Controllers\CarriageController.cs" />
     <Compile Include="Controllers\CutterController.cs" />
     <Compile Include="Controllers\CutterRopeController.cs" />
     <Compile Include="Controllers\FoamController.cs" />
@@ -104,7 +107,7 @@
     <Compile Include="Controllers\OarController.cs" />
     <Compile Include="BepPatches\Patch_AttachToController.cs" />
     <Compile Include="BepPatches\Patch_DischargeShip.cs" />
-    <Compile Include="BepPatches\Patch_OnActivate.cs" />
+    <Compile Include="Controllers\GunportController.cs" />
     <Compile Include="Controllers\Gunports.cs" />
     <Compile Include="Controllers\PulleyController.cs" />
     <Compile Include="LeopardPatcher.cs" />

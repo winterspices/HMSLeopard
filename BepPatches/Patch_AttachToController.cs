@@ -22,8 +22,8 @@ namespace Leopard.BepPatches
                 ___ropeEffect = __instance.rope.GetComponent<LineRenderer>();
                 controller.UpdateSailAttachment();
 
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_port").GetComponent<BowspritRopes>().PlaceholderName();
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_starboard").GetComponent<BowspritRopes>().PlaceholderName();
+                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_port").GetComponent<BowspritRopes>().Setup();
+                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_starboard").GetComponent<BowspritRopes>().Setup();
 
                 GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/starboard pulley").GetComponent<PulleyController>().Setup();
 

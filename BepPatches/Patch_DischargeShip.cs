@@ -28,6 +28,7 @@ namespace Leopard.BepPatches
                         releasePos.transform.localPosition = new Vector3(13.9f, -9.85f, -0.8f);
                     }
                 }
+
                 // Aestrin
                 else if (shipyard.transform.name == "shipyard Aestrin")
                 {
@@ -42,10 +43,25 @@ namespace Leopard.BepPatches
                         releasePos.transform.localPosition = new Vector3(-6.6f, -12.4f, 18.4f);
                     }
                 }
+
+                // Kicia Bay
+                else if (shipyard.transform.name == "shipyard Lagoon")
+                {
+                    GameObject releasePos = GameObject.Find("shipyard Lagoon/ship release pos");
+
+                    if (___currentShip.name == "BOAT LEOPARD (207)(Clone)")
+                    {
+                        releasePos.transform.localPosition = new Vector3(12.9f, -1.4f, -18.3f);
+                    }
+                    else
+                    {
+                        releasePos.transform.localPosition = new Vector3(13.2f, -1.4f, -11.6f);
+                    }
+                }
             }
             catch (Exception)
             {
-                // probably not al ankh
+                // probably not one of the main shipyards
                 return;
             }
 

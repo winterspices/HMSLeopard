@@ -26,14 +26,14 @@ namespace Leopard.Controllers
 
         public void Awake()
         {
-            leftPulley = GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/port pulley");
-            rightPulley = GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/starboard pulley");
-            mast = GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/mainmast");
+            leftPulley = Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/port pulley").gameObject;
+            rightPulley = Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/starboard pulley").gameObject;
+            mast = Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/mainmast").gameObject;
         }
 
         public void Setup()
         {
-            Debug.LogWarning("Setting up pulley system");
+            Debug.LogWarning("[Leopard] Setting up pulley system");
             List<GameObject> sails = mast.GetComponent<Mast>().sails;
 
             if (sails.Count > 0)
@@ -42,8 +42,8 @@ namespace Leopard.Controllers
                 leftAtt = sail.transform.GetComponent<SailConnections>().angleControllerLeft.GetComponent<RopeEffect>().attachment;
                 rightAtt = sail.transform.GetComponent<SailConnections>().angleControllerRight.GetComponent<RopeEffect>().attachment;
 
-                leftWinchAtt = GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/ATT/port att winch").transform;
-                rightWinchAtt = GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/ATT/starboard att winch").transform;
+                leftWinchAtt = Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/ATT/port att winch").transform;
+                rightWinchAtt = Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/ATT/starboard att winch").transform;
 
                 lastDistance = 0f;
 
@@ -56,10 +56,10 @@ namespace Leopard.Controllers
                 leftPulley.SetActive(false);
                 rightPulley.SetActive(false);
 
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/port pulley/port att").SetActive(false);
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/starboard pulley/starboard att").SetActive(false);
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/port pulley strap").SetActive(false);
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/starboard pulley strap").SetActive(false);
+                Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/port pulley/port att").gameObject.SetActive(false);
+                Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/starboard pulley/starboard att").gameObject.SetActive(false);
+                Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/port pulley strap").gameObject.SetActive(false);
+                Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/starboard pulley strap").gameObject.SetActive(false);
             }
         }
 
