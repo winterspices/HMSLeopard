@@ -19,7 +19,7 @@ namespace Leopard.Controllers
             helper = new SampleHeightHelper();
         }
 
-        public void Update()
+        private void Start()
         {
             // every half second adjust the height of the foam at the front
             StartCoroutine(Float());
