@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BepPatches\Patch_ApplyForce.cs" />
+    <Compile Include="BepPatches\Patch_UpdateRotation.cs" />
     <Compile Include="BepPatches\Patch_InteriorEffectsTrigger.cs" />
     <Compile Include="Controllers\BowspritRopes.cs" />
     <Compile Include="Controllers\CannonController.cs" />
