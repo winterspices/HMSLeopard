@@ -33,6 +33,12 @@ namespace Leopard.Controllers
             cutter.SetActive(true);
             Patches.cutterActive = true;
 
+            // remove any water and hull damage
+            BoatDamage damage = cutter.GetComponent<BoatDamage>();
+            damage.waterLevel = 0f;
+            damage.hullDamage = 0f;
+            damage.oakum = 0f;
+
             // set the cutters position
             pos = ship.position;
             rotation = ship.rotation;
