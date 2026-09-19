@@ -17,7 +17,7 @@ namespace Leopard.BepPatches
             {
                 Transform boat = ___sail.transform.parent.parent.parent.parent.parent;
                 Transform mast = ___sail.transform.parent;
-                Debug.LogWarning($"[Leopard] Boat: {boat.name}");
+                //Debug.LogWarning($"[Leopard] Boat: {boat.name}");
 
                 if (boat.name == "BOAT LEOPARD (207)(Clone)")
                 {
@@ -26,7 +26,7 @@ namespace Leopard.BepPatches
                         ___sail.minAngle = -60f;
                         ___sail.maxAngle = 60f;
 
-                        Debug.LogWarning($"[Leopard] Found square sail: {___sail.name}");
+                        //Debug.LogWarning($"[Leopard] Found square sail: {___sail.name}");
 
                         return;
                     }
@@ -35,7 +35,7 @@ namespace Leopard.BepPatches
                         ___sail.minAngle = -22f;
                         ___sail.maxAngle = 22f;
 
-                        Debug.LogWarning($"[Leopard] Found gaff sail on mizzen mast: {___sail.name}");
+                        //Debug.LogWarning($"[Leopard] Found gaff sail on mizzen mast: {___sail.name}");
 
                         return;
                     }

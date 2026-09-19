@@ -46,12 +46,12 @@ namespace Leopard
                             embarkLeopard.transform.SetParent(transform);
                             embarkLeopard.transform.localPosition = new Vector3(-300f, 0f, 100f);
 
-                            ship.transform.Find("boat leopard").transform.Find("mask water half").GetComponent<MeshRenderer>().material = MatLib.convexHull;
-                            ship.transform.Find("boat leopard").transform.Find("mask water full").GetComponent<MeshRenderer>().material = MatLib.convexHull;
+                            ship.transform.Find("boat leopard/mask water half").GetComponent<MeshRenderer>().material = MatLib.convexHull;
+                            ship.transform.Find("boat leopard/mask water full").GetComponent<MeshRenderer>().material = MatLib.convexHull;
                             ship.transform.Find("WaterObjectInteractionSphereBack").GetComponent<MeshRenderer>().material = MatLib.objectInteraction;
                             ship.transform.Find("WaterObjectInteractionSphereFront").GetComponent<MeshRenderer>().material = MatLib.objectInteraction;
                             ship.transform.Find("water foam").GetComponent<MeshRenderer>().material = MatLib.foam;
-                            ship.transform.Find("boat leopard").transform.Find("damage_water").GetComponent<MeshRenderer>().material = MatLib.water4;
+                            ship.transform.Find("boat leopard/damage_water").GetComponent<MeshRenderer>().material.shader = Shader.Find("FX/Water4");
                             ship.transform.Find("boat leopard/mask splash").GetComponent<MeshRenderer>().material = MatLib.splash;
                             ship.transform.Find("boat leopard/mask splash rear").GetComponent<MeshRenderer>().material = MatLib.splash;
 
@@ -195,12 +195,11 @@ namespace Leopard
             else
             {
                 AssetBundle bundle = AssetBundle.LoadFromFile(path + "\\leopard");
-                string prefab1 = "Assets/Leopard/BOAT LEOPARD (207).prefab";
-                leopard = (bundle.LoadAsset(prefab1) as GameObject);
+
+                leopard = (bundle.LoadAsset("Assets/Leopard/BOAT LEOPARD (207).prefab") as GameObject);
                 leopardInstalled = true;
 
-                string prefab2 = "Assets/Leopard/BOAT CUTTER (212).prefab";
-                cutter = (bundle.LoadAsset(prefab2) as GameObject);
+                cutter = (bundle.LoadAsset("Assets/Leopard/BOAT CUTTER (212).prefab") as GameObject);
                 cutterInstalled = true;
             }
         }
@@ -208,7 +207,6 @@ namespace Leopard
         // re-tag some objects to ensure that anchors work properly
         private static void SetupSeafloor()
         {
-            //GameObject.Find("island 26 lagoon parent terrain (-1)/Plane").name = "Terrain";
             GameObject.Find("island 1 A (gold rock)/terrain_fix").tag = "Terrain";
         }
     }
