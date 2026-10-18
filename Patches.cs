@@ -90,8 +90,6 @@ namespace Leopard
                                 }
                             }
 
-
-
                             ship.transform.Find("boat leopard/structure_container/Wooden Rowboat").gameObject.AddComponent<CutterController>();
                             ship.transform.Find("boat leopard/structure_container/rowboat rope").gameObject.AddComponent<CutterRopeController>();
 
@@ -116,6 +114,9 @@ namespace Leopard
                             // add foam controller scripts
                             ship.transform.Find("hull splash set 8/hull_splash (front left)").gameObject.AddComponent<FoamController>();
                             ship.transform.Find("hull splash set 8/hull_splash (front right)").gameObject.AddComponent<FoamController>();
+
+                            // update shaders
+                            UpdateShaders(ship.transform);
 
 
                             Debug.LogWarning("[Leopard] Finished loading");
@@ -178,29 +179,50 @@ namespace Leopard
 
         private static void LoadAssets()
         {
-            string path = Paths.PluginPath + "\\Leopard";
+            //string path = Paths.PluginPath + "\\Leopard";
+            string dloc = Assembly.GetExecutingAssembly().Location;
+            string path = Path.GetDirectoryName(dloc);
 
             // load .dll file `LeopardBridge.dll`
-            if (File.Exists(path + "\\LeopardBridge.dll"))
+            if (File.Exists(Path.Combine(path, "LeopardBridge.dll")))
             {
-                Assembly.LoadFrom(path + "\\LeopardBridge.dll");
+                Assembly.LoadFrom(Path.Combine(path, "LeopardBridge.dll"));
             }
 
             // load assetbundle
-            if (!File.Exists(path + "\\leopard"))
+            if (!File.Exists(Path.Combine(path, "leopard")))
             {
                 Debug.LogError("Leopard not installed correctly");
                 leopardInstalled = false;
             }
             else
             {
-                AssetBundle bundle = AssetBundle.LoadFromFile(path + "\\leopard");
+                AssetBundle bundle = AssetBundle.LoadFromFile(Path.Combine(path, "leopard"));
 
                 leopard = (bundle.LoadAsset("Assets/Leopard/BOAT LEOPARD (207).prefab") as GameObject);
                 leopardInstalled = true;
 
                 cutter = (bundle.LoadAsset("Assets/Leopard/BOAT CUTTER (212).prefab") as GameObject);
                 cutterInstalled = true;
+            }
+        }
+
+        private static void UpdateShaders(Transform root)
+        {
+            Renderer[] renderers = root.GetComponentsInChildren<Renderer>(true);
+
+            foreach (Renderer renderer in renderers)
+            {
+                foreach (Material material in renderer.materials)
+                {
+                    if (material != null && material.shader != null)
+                    {
+                        if (material.name != "glass (Instance)")
+                        {
+                            material.shader = Shader.Find(material.shader.name);
+                        }
+                    }
+                }
             }
         }
 
