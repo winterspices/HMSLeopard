@@ -13,8 +13,7 @@ namespace Leopard.BepPatches
         {
             if (__instance.description.Contains("custom"))
             {
-                string transform = __instance.description.Substring(__instance.description.IndexOf(' ') + 1);
-
+                //string transform = __instance.description.Substring(__instance.description.IndexOf(' ') + 1);
                 __instance.rope = controller;
                 controller.transform.position = __instance.GetComponent<SailAttachment>().att.transform.position;
 
@@ -22,10 +21,11 @@ namespace Leopard.BepPatches
                 ___ropeEffect = __instance.rope.GetComponent<LineRenderer>();
                 controller.UpdateSailAttachment();
 
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_port").GetComponent<BowspritRopes>().Setup();
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_starboard").GetComponent<BowspritRopes>().Setup();
+                Patches.ship.transform.Find("boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_port").GetComponent<BowspritRopes>().Setup();
+                Patches.ship.transform.Find("boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_starboard").GetComponent<BowspritRopes>().Setup();
 
-                GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/MAINMAST/starboard pulley").GetComponent<PulleyController>().Setup();
+                Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/starboard pulley").GetComponent<PulleyController>().Setup();
+                Patches.ship.transform.Find("boat leopard/structure_container/MAINMAST/port pulley").GetComponent<PulleyController>().Setup();
 
                 return false;
             }

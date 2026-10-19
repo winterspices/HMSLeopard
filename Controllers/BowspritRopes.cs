@@ -6,7 +6,7 @@ namespace Leopard.Controllers
     {
         public void Setup()
         {
-            GameObject mast = GameObject.Find("BOAT LEOPARD (207)(Clone)/boat leopard/structure_container/FOREMAST/foremast");
+            GameObject mast = Patches.ship.transform.Find("boat leopard/structure_container/FOREMAST/foremast").gameObject;
 
             if (mast.GetComponent<Mast>().sails.Count > 0)
             {

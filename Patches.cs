@@ -97,6 +97,7 @@ namespace Leopard
                             ship.transform.Find("boat leopard/structure_container/BOWSPRIT/ROPES/rope_foremast_starboard").gameObject.AddComponent<BowspritRopes>();
 
                             ship.transform.Find("boat leopard/structure_container/MAINMAST/starboard pulley").gameObject.AddComponent<PulleyController>();
+                            ship.transform.Find("boat leopard/structure_container/MAINMAST/port pulley").gameObject.AddComponent<PulleyController>();
 
                             Gunports.Setup();
 

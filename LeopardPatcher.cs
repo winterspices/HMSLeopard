@@ -6,14 +6,15 @@ using UnityEngine;
 
 namespace Leopard
 {
-    [BepInPlugin("com.winter.leopard", "HMS Leopard", "1.6.1")]
+    [BepInPlugin("com.winter.leopard", "HMS Leopard", "1.6.2")]
     [BepInDependency("com.nandbrew.shipyardexpansion")]
     [BepInDependency("com.nandbrew.sailcollisionfix")]
+    [BepInIncompatibility("com.Aquilartz.OldChronian")]
     public class LeopardPatcher : BaseUnityPlugin
     {
         public const string pluginGuid = "com.winter.leopard";
         public const string pluginName = "HMS Leopard";
-        public const string pluginVersion = "1.6.1";
+        public const string pluginVersion = "1.6.2";
 
         private void Awake()
         {
